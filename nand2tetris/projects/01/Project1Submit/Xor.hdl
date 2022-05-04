@@ -1,0 +1,29 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Xor.hdl
+
+/**
+ * Exclusive-or gate:
+ * out = not (a == b)
+ */
+
+CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+   
+   //A and B input go thru NOT gates then aAndnotB go thru 1 AND gate. notaAndb go through the other AND gate 
+   // then the outputs of aAndnotb and notaAndb goes thru OR gate OR(a = aAndnotb b =notaAndb = out)
+
+           
+            
+
+
+    Not(in=a, out=nota);
+    Not(in=b, out=notb);
+    And(a=a, b=notb, out=aAndnotb);
+    And(a=nota, b=b, out=notaAndb);
+    Or(a=aAndnotb, b=notaAndb, out=out);
+}
